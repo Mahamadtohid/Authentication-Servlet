@@ -50,19 +50,14 @@ public class LoginServlet extends HttpServlet {
 		
 		
 		
-//		if(userDao.isValid(username  , password)) {
-//			
-//			HttpSession session = request.getSession();
-//			session.setAttribute("username" , username);
-//			
-//			response.sendRedirect("welcome.jsp");
-		
-		if(username.equals("Mahamadtohid")) {
+		if(userDao.isValid(username  , password)) {
+			
 			HttpSession session = request.getSession();
 			session.setAttribute("username" , username);
-			response.sendRedirect("welcome.jsp");
 			
-		}else{
+			response.sendRedirect("welcome.jsp");
+		
+		else{
 			response.sendRedirect("login.jsp?error=1");
 			
 			System.out.print("Error Occurred");

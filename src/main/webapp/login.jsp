@@ -25,7 +25,8 @@
 if (error != null && error.equals("1")){ %>
 
  <p style = "color : red"> Invalid Credentials</p>
-}
+ <% } %>
+
 	
 </form>
 
