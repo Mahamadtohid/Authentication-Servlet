@@ -1,7 +1,7 @@
 package com.company.servlet;
 
 import com.company.dao.*;
-//mport com.company.dao.UserDaoImp;
+import com.company.dao.UserDaoImp;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -50,14 +50,14 @@ public class LoginServlet extends HttpServlet {
 		
 		
 		
-		if(userDao.isValid(username  , password)) {
+		if(UserDaoImp.isValid(username , password)) {
 			
 			HttpSession session = request.getSession();
 			session.setAttribute("username" , username);
 			
 			response.sendRedirect("welcome.jsp");
 		
-		else{
+		}else{
 			response.sendRedirect("login.jsp?error=1");
 			
 			System.out.print("Error Occurred");
