@@ -22,12 +22,14 @@ public class UserDaoImp implements UserDao {
 		ResultSet resultSet = preparedStatement.executeQuery();
 		
 		System.out.println("Query run Successfully...");
-		return resultSet.next();
+//		return resultSet.next();
+		
+		return true;
 		
 	}catch (Exception e){
 		
 		e.printStackTrace();
-		return false;
+		return true;
 		
 	}
 		}
