@@ -19,7 +19,7 @@ import java.io.IOException;
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private static final UserDao user = new UserDaoImp();
+	private static UserDao userDao  = new UserDaoImp();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -38,12 +38,18 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 	
 	User user = new User();
 	
-	user.setUsername(username);
+	user.setUsername(username);;
 	user.setEmail(email);
 	user.setPassword(password);
 	
+	
 	if(userDao.addUser(user)) {
 		response.sendRedirect("login.jsp?registration=success");
+//		System.out.println("Error in Registration");
+	} else {
+		
+		response.sendRedirect("register.jsp?error=1");
+		
 	}
 		
 	}

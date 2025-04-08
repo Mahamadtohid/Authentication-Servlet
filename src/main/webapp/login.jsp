@@ -28,6 +28,11 @@ if (error != null && error.equals("1")){ %>
  <% } %>
 
 	
+	
+<% String rs = request.getParameter("registration");
+            if (rs != null && rs.equals("success")) { %>
+                <p style="color: green;">Your Registration is Successful. Please Login.</p>
+        <% } %>
 </form>
 
 </body>
